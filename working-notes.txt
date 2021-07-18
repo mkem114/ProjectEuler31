@@ -1,0 +1,71 @@
+If we start by breaking down the smallest non-atmoic coin to the next smallest coin beginning at 200 we get the
+following permutations. This is just generation of a large graph and then counting the number of leaves.
+
+200
+100 100
+100 50 50
+100 50 20 20 | 10    looking at the 10p in isolation
+100 50 20 20 | 5  5
+100 50 20 20 | 5  2 2 1
+100 50 20 20 | 5  2 1 1 1
+100 50 20 20 | 5  1 1 1 1 1
+100 50 20 20 | 2  2 2 2 2
+100 50 20 20 | 2  2 2 2 1 1
+100 50 20 20 | 2  2 2 1 1 1 1
+100 50 20 20 | 2  2 1 1 1 1 1 1
+100 50 20 20 | 2  1 1 1 1 1 1 1 1
+100 50 20 20 | 1  1 1 1 1 1 1 1 1 1
+
+each 1p coin can be 1 permutation 1p
+each 2p coin can be 2 permutations 2p or 1p + 1p
+each 5p coin can be 4 permutations 5p or 2p + 2p + 1p or 2p + 1p + 1p + 1p or 1p + 1p + 1p + 1p + 1p
+each 10p coin can be 11 permutations
+
+to get to 20p with up to a 20p coin there are 41 permutations
+
+only 1p
+20x 1 00x 2 00x 5 00x 10
+1p and 2p
+18x 1 01x 2 00x 5 00x 10
+16x 1 02x 2 00x 5 00x 10
+14x 1 03x 2 00x 5 00x 10
+12x 1 04x 2 00x 5 00x 10
+10x 1 05x 2 00x 5 00x 10
+08x 1 06x 2 00x 5 00x 10
+06x 1 07x 2 00x 5 00x 10
+04x 1 08x 2 00x 5 00x 10
+02x 1 09x 2 00x 5 00x 10
+00x 1 10x 2 00x 5 00x 10
+1p, 2p, and 5p
+01x 1 07x 2 01x 5 00x 10
+03x 1 06x 2 01x 5 00x 10
+05x 1 05x 2 01x 5 00x 10
+07x 1 04x 2 01x 5 00x 10
+09x 1 03x 2 01x 5 00x 10
+11x 1 02x 2 01x 5 00x 10
+13x 1 01x 2 01x 5 00x 10
+15x 1 00x 2 01x 5 00x 10
+05x 1 05x 2 02x 5 00x 10
+06x 1 04x 2 02x 5 00x 10
+07x 1 03x 2 02x 5 00x 10
+08x 1 02x 2 02x 5 00x 10
+09x 1 01x 2 02x 5 00x 10
+10x 1 00x 2 02x 5 00x 10
+01x 1 02x 2 03x 5 00x 10
+03x 1 01x 2 03x 5 00x 10
+05x 1 00x 2 03x 5 00x 10
+00x 1 00x 2 04x 5 00x 10
+1p, 2p, 50p, and 10p
+10x 1 00x 2 00x 5 01x 10
+08x 1 01x 2 00x 5 01x 10
+06x 1 02x 2 00x 5 01x 10
+04x 1 03x 2 00x 5 01x 10
+02x 1 04x 2 00x 5 01x 10
+00x 1 05x 2 00x 5 01x 10
+01x 1 02x 2 01x 5 01x 10
+03x 1 01x 2 01x 5 01x 10
+05x 1 00x 2 01x 5 01x 10
+00x 1 00x 2 02x 5 01x 10
+05x 1 00x 2 00x 5 02x 10
+1p, 2p, 50p, 10p and 20p
+00x 1 00x 2 00x 5 00x 10 01x 20
